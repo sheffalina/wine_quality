@@ -3,8 +3,3 @@ pandas
 scikit-learn
 seaborn
 matplotlib
-random
-torch
-base64
-plotly
-img

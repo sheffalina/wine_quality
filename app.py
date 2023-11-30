@@ -8,54 +8,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import random
 from sklearn.metrics import precision_score, recall_score
-# from diffusers import KandinskyV22Pipeline, KandinskyV22PriorPipeline
-import torch
-import base64
-import plotly.express as px
-import img
 
-
-def get_img_as_base64(file):
-    with open(file, "rb") as f:
-        data = f.read()
-    return base64.b64encode(data).decode()
-
-
-img = get_img_as_base64("image.jpg")
-img_2 = get_img_as_base64("t4.png")
-
-page_bg_img = f"""
-<style>
-[data-testid="stAppViewContainer"] > .main {{
-# background-image: url("https://media.istockphoto.com/id/499889196/ru/%D1%84%D0%BE%D1%82%D0%BE/%D1%88%D1%82%D0%BE%D0%BF%D0%BE%D1%80-%D0%B8-%D0%B1%D1%83%D1%82%D1%8B%D0%BB%D0%BA%D0%B0-%D0%B2%D0%B8%D0%BD%D0%B0.webp?b=1&s=170667a&w=0&k=20&c=hfjMPZc8MQa9kSFcvA4jP4stvidgrt_iqxX0A-zkbcA=");
-# background-size: 100%;
-# background-position: top left;
-# background-repeat: no-repeat;
-# background-attachment: local;
-background-image: url("data:image/png;base64,{img_2}");
-background-position: center; 
-background-repeat: no-repeat;
-background-attachment: fixed;
-}}
-
-# [data-testid="stSidebar"] > div:first-child {{
-# background-image: url("data:image/png;base64,{img}");
-# background-position: center; 
-# background-repeat: no-repeat;
-# background-attachment: fixed;
-# }}
-
-[data-testid="stHeader"] {{
-background: rgba(0,0,0,0);
-}}
-
-[data-testid="stToolbar"] {{
-right: 2rem;
-}}
-</style>
-"""
-
-st.markdown(page_bg_img, unsafe_allow_html= True)
 df = pd.read_csv('wine_5.csv')
 st.title('Классификация красного вина')
 
